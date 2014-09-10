@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5023"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,6 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" customClass="PJAppDelegate">
             <connections>
+                <outlet property="bubbleView" destination="12y-Kh-rch" id="0TL-f3-4NQ"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -669,12 +670,125 @@
         <window title="ChatBubble" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="335" y="390" width="660" height="133"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="660" height="133"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="12y-Kh-rch" customClass="PJBubbleView">
+                        <rect key="frame" x="20" y="20" width="620" height="93"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="12y-Kh-rch" secondAttribute="bottom" constant="20" id="0yT-wL-uY9"/>
+                    <constraint firstItem="12y-Kh-rch" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="2tl-oZ-YZx"/>
+                    <constraint firstItem="12y-Kh-rch" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="93x-8t-O8H"/>
+                    <constraint firstAttribute="trailing" secondItem="12y-Kh-rch" secondAttribute="trailing" constant="20" id="kog-DH-duv"/>
+                </constraints>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="CE394F74-37DF-48EF-AB5F-F267FA07C63F" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="VCp-lf-joU">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="WEM-Fa-r3s"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="utV-Bb-CHa"/>
+                    <toolbarItem implicitItemIdentifier="8BB369E3-0DC7-4F55-9727-3391981DC448" label="Stroke" paletteLabel="Stroke" id="rdi-cw-muD">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="44" height="23"/>
+                        <size key="maxSize" width="44" height="23"/>
+                        <colorWell key="view" id="XTf-Fy-hwI">
+                            <rect key="frame" x="0.0" y="14" width="44" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <color key="color" red="0.80392163991928101" green="0.87450987100601196" blue="0.93333339691162109" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bubbleView.strokeColor" id="qIE-3Y-NU4"/>
+                            </connections>
+                        </colorWell>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="CFB996FC-8C7C-4913-B6EC-EA4B60B362CC" label="Fill" paletteLabel="Fill" id="fvr-d0-Nxi">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="44" height="23"/>
+                        <size key="maxSize" width="44" height="23"/>
+                        <colorWell key="view" id="Gj6-5y-4Sb">
+                            <rect key="frame" x="0.0" y="14" width="44" height="23"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <color key="color" red="0.87843143939971924" green="0.93725496530532837" blue="0.98431378602981567" alpha="1" colorSpace="deviceRGB"/>
+                            <connections>
+                                <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bubbleView.fillColor" id="ez5-nC-gVH"/>
+                            </connections>
+                        </colorWell>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="5E3C0810-1FEC-47D6-AE4E-CE66900904B0" label="Direction" paletteLabel="Direction" id="0xC-HI-Jtu">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="104" height="24"/>
+                        <size key="maxSize" width="223" height="28"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="s6M-Ya-C70">
+                            <rect key="frame" x="0.0" y="14" width="223" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" alignment="left" style="rounded" trackingMode="selectAny" id="0rt-tH-GoR">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="Up" width="57" tag="1"/>
+                                    <segment label="Right" width="57" tag="2"/>
+                                    <segment label="Bottom" width="56" tag="4"/>
+                                    <segment label="Left" tag="8"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="doSelectedAction:" target="Voe-Tx-rLC" id="mH5-u5-ckt"/>
+                            </connections>
+                        </segmentedControl>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="640022D7-528C-4586-A74D-E90F6423AADD" label="Width" paletteLabel="Width" id="1bz-cs-Tza">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="21"/>
+                        <size key="maxSize" width="96" height="21"/>
+                        <slider key="view" verticalHuggingPriority="750" id="BU7-m2-TFY">
+                            <rect key="frame" x="0.0" y="14" width="96" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="ZyE-98-j2r"/>
+                            <connections>
+                                <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bubbleView.triangleWidth" id="K8M-pP-dT9"/>
+                            </connections>
+                        </slider>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="F7F019B9-9DFB-4DF7-8A64-41999DFB6355" label="Height" paletteLabel="Height" id="5G0-wL-n8g">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="21" height="96"/>
+                        <size key="maxSize" width="21" height="96"/>
+                        <slider key="view" horizontalHuggingPriority="750" id="H3a-TY-rPs">
+                            <rect key="frame" x="11" y="14" width="21" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="51.213541666666671" tickMarkPosition="right" sliderType="linear" id="Omz-rC-yJy"/>
+                            <connections>
+                                <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bubbleView.triangleHeight" id="bB0-Dt-A1q"/>
+                            </connections>
+                        </slider>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="43375C4E-B795-4F87-B5A5-45D1E686081C" label="Corner" paletteLabel="Corner" id="LKD-5X-Qzm">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="96" height="21"/>
+                        <size key="maxSize" width="96" height="21"/>
+                        <slider key="view" verticalHuggingPriority="750" id="P6U-Yi-KkU">
+                            <rect key="frame" x="0.0" y="14" width="96" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="AxY-GW-KF4"/>
+                            <connections>
+                                <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bubbleView.cornerRadius" id="a5S-i7-pYc"/>
+                            </connections>
+                        </slider>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="rdi-cw-muD"/>
+                    <toolbarItem reference="fvr-d0-Nxi"/>
+                    <toolbarItem reference="1bz-cs-Tza"/>
+                    <toolbarItem reference="5G0-wL-n8g"/>
+                    <toolbarItem reference="LKD-5X-Qzm"/>
+                    <toolbarItem reference="utV-Bb-CHa"/>
+                    <toolbarItem reference="0xC-HI-Jtu"/>
+                </defaultToolbarItems>
+            </toolbar>
         </window>
     </objects>
 </document>

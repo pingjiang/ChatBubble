@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class PJBubbleView;
+
 @interface PJAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (weak) IBOutlet PJBubbleView *bubbleView;
+
+- (IBAction)doSelectedAction:(id)sender;
 
 @end

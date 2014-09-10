@@ -18,6 +18,7 @@
 		D7F2E2F819BEA2C90094D7E3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7F2E2D719BEA2C90094D7E3 /* Cocoa.framework */; };
 		D7F2E30019BEA2C90094D7E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7F2E2FE19BEA2C90094D7E3 /* InfoPlist.strings */; };
 		D7F2E30219BEA2C90094D7E3 /* ChatBubbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2E30119BEA2C90094D7E3 /* ChatBubbleTests.m */; };
+		D7F2E30D19BEA2EB0094D7E3 /* PJBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F2E30C19BEA2EB0094D7E3 /* PJBubbleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		D7F2E2FD19BEA2C90094D7E3 /* ChatBubbleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChatBubbleTests-Info.plist"; sourceTree = "<group>"; };
 		D7F2E2FF19BEA2C90094D7E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D7F2E30119BEA2C90094D7E3 /* ChatBubbleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatBubbleTests.m; sourceTree = "<group>"; };
+		D7F2E30B19BEA2EB0094D7E3 /* PJBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJBubbleView.h; sourceTree = "<group>"; };
+		D7F2E30C19BEA2EB0094D7E3 /* PJBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJBubbleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				D7F2E2EC19BEA2C90094D7E3 /* MainMenu.xib */,
 				D7F2E2EF19BEA2C90094D7E3 /* Images.xcassets */,
 				D7F2E2DE19BEA2C90094D7E3 /* Supporting Files */,
+				D7F2E30B19BEA2EB0094D7E3 /* PJBubbleView.h */,
+				D7F2E30C19BEA2EB0094D7E3 /* PJBubbleView.m */,
 			);
 			path = ChatBubble;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F2E30D19BEA2EB0094D7E3 /* PJBubbleView.m in Sources */,
 				D7F2E2EB19BEA2C90094D7E3 /* PJAppDelegate.m in Sources */,
 				D7F2E2E419BEA2C90094D7E3 /* main.m in Sources */,
 			);
